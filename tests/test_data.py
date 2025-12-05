@@ -1,6 +1,5 @@
 import json
 import os
-import pytest
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(PROJECT_ROOT, "data")
@@ -19,7 +18,7 @@ def test_commands_json_structure():
         with open(DB_FILE, "w") as f:
             json.dump([], f)
         created = True
-    
+
     try:
         with open(DB_FILE, "r") as f:
             data = json.load(f)

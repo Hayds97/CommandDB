@@ -115,7 +115,7 @@ def run_hotkey(keys, software="General"):
     # Check for workflow or sequence
     if ";;" in keys:
         return run_workflow(keys)
-    
+
     # Handle sequence notation (e.g. "win + x > A")
     if ">" in keys:
         parts = keys.split(">")
@@ -130,6 +130,3 @@ def run_hotkey(keys, software="General"):
     except Exception as e:
         print(f"Error sending keys: {e}")
         return False
-
-
-

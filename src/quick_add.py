@@ -86,10 +86,11 @@ class QuickAddWidget:
         self.root = tk.Tk()
         self.root.withdraw()
         self.root.title("✅ Command Center")
-        
+
         # Icon
         try:
             from ctypes import windll
+
             windll.shell32.SetCurrentProcessExplicitAppUserModelID("commanddb.cc.v1")
             self.root.iconbitmap(os.path.join(ASSETS_DIR, "app_icon.ico"))
         except Exception:
@@ -127,7 +128,7 @@ class QuickAddWidget:
 
         self.notebook.select(self.tab_search)
         self.root.bind("<Escape>", lambda e: self.close())
-        
+
         # Handle window close button (X)
         self.root.protocol("WM_DELETE_WINDOW", self.close)
 
@@ -155,25 +156,25 @@ class QuickAddWidget:
     def show(self):
         # Workaround: 'suppress=True' is unreliable for Ctrl+Alt+A on some systems.
         # We manually clean up the typed character.
-        
+
         # 1. Release modifiers to avoid Ctrl+Backspace / Alt+Backspace
         for k in ["ctrl", "alt", "shift", "right ctrl", "right alt", "right shift"]:
             try:
                 keyboard.release(k)
             except Exception:
                 pass
-        
+
         # 2. Brief delay and backspace
         time.sleep(0.05)
         keyboard.send("backspace")
 
         self.load_db()
-        
+
         # Refresh lists
         self.update_list()
         self.update_software_list()
         self.refresh_cards()
-        
+
         self.root.deiconify()
         self.root.lift()
         self.root.attributes("-topmost", True)
@@ -292,7 +293,7 @@ class QuickAddWidget:
 
     def copy_and_show_feedback(self, text, widget):
         pyperclip.copy(text)
-        
+
         # Get widget position relative to screen
         try:
             x = widget.winfo_rootx()
@@ -301,7 +302,7 @@ class QuickAddWidget:
             # Fallback to mouse position if widget is gone
             x = self.root.winfo_pointerx()
             y = self.root.winfo_pointery()
-        
+
         # Create floating label
         top = tk.Toplevel(self.root)
         top.overrideredirect(True)
@@ -309,18 +310,18 @@ class QuickAddWidget:
         top.geometry(f"+{x}+{y-30}")
         top.attributes("-topmost", True)
         top.configure(bg=BG)
-        
+
         tk.Label(
-            top, 
-            text="Copied!", 
-            bg=ACCENT, 
-            fg="black", 
-            font=("Segoe UI", 8, "bold"), 
-            padx=8, 
+            top,
+            text="Copied!",
+            bg=ACCENT,
+            fg="black",
+            font=("Segoe UI", 8, "bold"),
+            padx=8,
             pady=4,
-            relief="flat"
+            relief="flat",
         ).pack()
-        
+
         # Auto close after 1 second
         self.root.after(1000, top.destroy)
 
@@ -542,7 +543,7 @@ class QuickAddWidget:
                 if arg is None:
                     return
                 cmd = utils.resolve_command(cmd, arg)
-            
+
             # Handle Run Panel workflows (e.g. win + r > cmd)
             if item["category"] == "Run Panel" and ">" in cmd:
                 parts = cmd.split(">")
@@ -556,7 +557,7 @@ class QuickAddWidget:
             elif item["category"] == "PowerShell":
                 if ";;" not in cmd:
                     cmd = f'start powershell -NoExit -Command "{cmd}"'
-                
+
             threading.Thread(target=utils.run_command_locally, args=(cmd,)).start()
         else:
             pyperclip.copy(item["command"])
@@ -620,12 +621,12 @@ def listen():
 
     widget = QuickAddWidget()
     widget.initialize_root()
-    
+
     # Use suppress=False and manual cleanup since suppress=True is flaky
     keyboard.add_hotkey(HOTKEY_ADD, lambda: widget.root.after(0, widget.show), suppress=False)
     keyboard.add_hotkey(HOTKEY_VISUAL, lambda: launch("visual_db.py"))
     keyboard.add_hotkey(HOTKEY_HARVEST, lambda: launch("importer.py"))
-    
+
     # Run Tkinter mainloop instead of keyboard.wait()
     widget.root.mainloop()
 
