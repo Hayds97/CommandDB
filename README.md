@@ -97,3 +97,12 @@ You can chain multiple actions together using `;;` as a separator.
 ## Requirements
 - Windows 10/11
 - Python 3.12+
+
+## Gallery
+![Screenshot 1](assets/screenshots/Picture1.png)
+![Screenshot 2](assets/screenshots/Picture2.png)
+![Screenshot 3](assets/screenshots/Picture3.png)
+![Screenshot 4](assets/screenshots/Picture4.png)
+![Screenshot 5](assets/screenshots/Picture5.png)
+![Screenshot 6](assets/screenshots/Picture6.png)
+![Screenshot 7](assets/screenshots/Picture7.png)
