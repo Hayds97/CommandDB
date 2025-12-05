@@ -1,0 +1,10 @@
+keyboard
+pyperclip
+pyautogui
+pygetwindow
+streamlit
+pandas
+requests
+lxml
+html5lib
+beautifulsoup4

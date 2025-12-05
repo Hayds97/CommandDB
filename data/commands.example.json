@@ -1,0 +1,37 @@
+[
+    {
+        "command": "win + .",
+        "software": "Windows",
+        "description": "Open Emoji Panel",
+        "category": "Hotkey",
+        "tags": ["emoji", "smile"]
+    },
+    {
+        "command": "git status",
+        "software": "Git",
+        "description": "Show working tree status",
+        "category": "CMD",
+        "tags": ["git", "status"]
+    },
+    {
+        "command": "ctrl + alt + a",
+        "software": "CommandDB",
+        "description": "Open Quick Add / Search Widget",
+        "category": "Hotkey",
+        "tags": ["app", "search", "add"]
+    },
+    {
+        "command": "ctrl + alt + v",
+        "software": "CommandDB",
+        "description": "Open Visual Dashboard",
+        "category": "Hotkey",
+        "tags": ["app", "dashboard", "visual"]
+    },
+    {
+        "command": "ctrl + alt + h",
+        "software": "CommandDB",
+        "description": "Open Web Harvester",
+        "category": "Hotkey",
+        "tags": ["app", "import", "harvester"]
+    }
+]
