@@ -132,8 +132,4 @@ def run_hotkey(keys, software="General"):
         return False
 
 
-def resolve_command(cmd, arg):
-    for p in PLACEHOLDERS:
-        if p in cmd:
-            return cmd.replace(p, arg)
-    return cmd
+

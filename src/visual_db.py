@@ -208,13 +208,18 @@ with tab2:
                                     # Handle Run Panel workflows (e.g. win + r > cmd)
                                     if row["category"] == "Run Panel" and ">" in final_cmd:
                                         parts = final_cmd.split(">")
-                                        final_cmd = f"{parts[0].strip()} ;; WAIT 0.5 ;; TYPE {parts[1].strip()} ;; enter"
+                                        final_cmd = (
+                                            f"{parts[0].strip()} ;; WAIT 0.5 ;; "
+                                            f"TYPE {parts[1].strip()} ;; enter"
+                                        )
                                     
                                     # Handle CLI tools visibility
                                     elif row["category"] == "CMD":
                                         final_cmd = f'start cmd /k "{final_cmd}"'
                                     elif row["category"] == "PowerShell":
-                                        final_cmd = f'start powershell -NoExit -Command "{final_cmd}"'
+                                        final_cmd = (
+                                            f'start powershell -NoExit -Command "{final_cmd}"'
+                                        )
 
                                     execute_command_wrapper(final_cmd)
                         elif row["category"] == "Hotkey":

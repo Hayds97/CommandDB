@@ -64,6 +64,35 @@ You can chain multiple actions together using `;;` as a separator.
 - `src/`: Source code.
 - `scripts/`: Helper batch files.
 
+## Developer Environment & Tooling
+
+### Setup
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Hayds97/CommandDB.git
+   cd CommandDB
+   ```
+2. **Create a virtual environment**:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\Activate
+   ```
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   pip install -r requirements-dev.txt
+   ```
+
+### Tools
+- **Linting**: `ruff check .`
+- **Testing**: `pytest`
+- **Formatting**: `black .`
+
+### Project Structure
+- `src/quick_add.py`: Tkinter-based background service.
+- `src/visual_db.py`: Streamlit-based web dashboard.
+- `src/utils.py`: Shared logic for command execution and hotkeys.
+
 ## Requirements
 - Windows 10/11
 - Python 3.12+
