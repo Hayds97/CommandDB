@@ -57,6 +57,7 @@ A utility to scrape and import command lists from websites.
 
 ### 4. CLI Search (`scripts/cmdsearch.bat`)
 A lightweight command-line interface for quick access without the GUI.
+![CLI Search](assets/screenshots/CLI_view.png)
 
 ## Workflows & Automation
 You can chain multiple actions together using `;;` as a separator.
