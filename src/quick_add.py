@@ -290,6 +290,40 @@ class QuickAddWidget:
             for idx, item in enumerate(grouped[soft]):
                 self.create_card(grid, item, idx // 2, idx % 2)
 
+    def copy_and_show_feedback(self, text, widget):
+        pyperclip.copy(text)
+        
+        # Get widget position relative to screen
+        try:
+            x = widget.winfo_rootx()
+            y = widget.winfo_rooty()
+        except Exception:
+            # Fallback to mouse position if widget is gone
+            x = self.root.winfo_pointerx()
+            y = self.root.winfo_pointery()
+        
+        # Create floating label
+        top = tk.Toplevel(self.root)
+        top.overrideredirect(True)
+        # Position above the button
+        top.geometry(f"+{x}+{y-30}")
+        top.attributes("-topmost", True)
+        top.configure(bg=BG)
+        
+        tk.Label(
+            top, 
+            text="Copied!", 
+            bg=ACCENT, 
+            fg="black", 
+            font=("Segoe UI", 8, "bold"), 
+            padx=8, 
+            pady=4,
+            relief="flat"
+        ).pack()
+        
+        # Auto close after 1 second
+        self.root.after(1000, top.destroy)
+
     def create_card(self, parent, item, row, col):
         card = tk.Frame(
             parent, bg="#1E1E1E", padx=8, pady=8, highlightbackground="#333", highlightthickness=1
@@ -351,7 +385,7 @@ class QuickAddWidget:
                 command=lambda i=item: self.execute_item(i),
             ).pack(side="left", fill="x", expand=True, padx=(0, 2))
 
-        tk.Button(
+        btn_copy = tk.Button(
             btns,
             text="📋",
             bg="#333",
@@ -359,8 +393,11 @@ class QuickAddWidget:
             font=("Segoe UI", 8),
             relief="flat",
             width=3,
-            command=lambda i=item: pyperclip.copy(i["command"]),
-        ).pack(side="right")
+        )
+        btn_copy.configure(
+            command=lambda i=item, b=btn_copy: self.copy_and_show_feedback(i["command"], b)
+        )
+        btn_copy.pack(side="right")
 
     def setup_add(self):
         f = tk.Frame(self.tab_add, bg=BG, padx=15, pady=15)
