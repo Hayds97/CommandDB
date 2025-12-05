@@ -17,6 +17,7 @@ To launch the tools instantly using `Win+R`(Run Dialog):
 2. Create a shortcut to `scripts/cmdsearch.bat` and rename it to `cmddb`(Command Database).
 3. Move both shortcuts to `C:\Windows` (or any folder in your system PATH).
 4. Now you can press `Win+R` and type `vcmddb` or `cmddb` to launch them!
+Alternatively, skip this step and access the features using the **Global Hotkeys**. 
 
 ## Key Components
 
