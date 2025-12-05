@@ -23,6 +23,10 @@ Alternatively, skip this step and access the features using the **Global Hotkeys
 
 ### 1. Quick Launcher (`src/quick_add.py`)
 The core background service that listens for global hotkeys.
+![Quick Add Search](assets/screenshots/quick_add_search.png)
+![Quick Add Card View](assets/screenshots/quick_add_cardview.png)
+![Quick Add New](assets/screenshots/quick_add_addview.png)
+
 - **Global Hotkeys**:
   - `Ctrl+Alt+A`: Open the Quick Add/Search widget.
   - `Ctrl+Alt+V`: Launch the Visual Dashboard.
@@ -34,6 +38,10 @@ The core background service that listens for global hotkeys.
 
 ### 2. Visual Dashboard (`src/visual_db.py`)
 A full-featured web interface built with Streamlit.
+![Visual Dashboard Card View](assets/screenshots/Visualdatabase_cardview.png)
+![Visual Dashboard Edit](assets/screenshots/Visualdatabase_edit.png)
+![Auto Tagger](assets/screenshots/Bulk_auto-tagger.png)
+
 - **Features**:
   - **Browse & Filter**: Filter by software, category, or tags.
   - **Direct Execution**: Run commands or hotkeys directly from the browser.
@@ -42,6 +50,8 @@ A full-featured web interface built with Streamlit.
 
 ### 3. Web Harvester (`src/importer.py`)
 A utility to scrape and import command lists from websites.
+![Web Harvester](assets/screenshots/Web_command_harvester.png)
+
 - **Usage**: Paste a URL, select tables, and import. New items are tagged with `import` for easy review.
 
 ### 4. CLI Search (`scripts/cmdsearch.bat`)
@@ -97,12 +107,3 @@ You can chain multiple actions together using `;;` as a separator.
 ## Requirements
 - Windows 10/11
 - Python 3.12+
-
-## Gallery
-![Screenshot 1](assets/screenshots/Picture1.png)
-![Screenshot 2](assets/screenshots/Picture2.png)
-![Screenshot 3](assets/screenshots/Picture3.png)
-![Screenshot 4](assets/screenshots/Picture4.png)
-![Screenshot 5](assets/screenshots/Picture5.png)
-![Screenshot 6](assets/screenshots/Picture6.png)
-![Screenshot 7](assets/screenshots/Picture7.png)
