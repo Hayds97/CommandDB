@@ -11,6 +11,13 @@ The Command Manager is a personal automation suite designed to store, organize, 
    - This will set up the Python environment, install dependencies, and configure the app to run at Windows startup.
 3. **Run**: The background service will start automatically. You can also start it manually by running `RUN.bat`.
 
+### Pro Tip: Quick Access via Run Dialog
+To launch the tools instantly using `Win+R`(Run Dialog):
+1. Create a shortcut to `RUN.bat` and rename it to `vcmddb`(Visual Command Database).
+2. Create a shortcut to `scripts/cmdsearch.bat` and rename it to `cmddb`(Command Database).
+3. Move both shortcuts to `C:\Windows` (or any folder in your system PATH).
+4. Now you can press `Win+R` and type `vcmddb` or `cmddb` to launch them!
+
 ## Key Components
 
 ### 1. Quick Launcher (`src/quick_add.py`)
